@@ -60,13 +60,14 @@ public class CustomerController {
     @ResponseBody
     public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
         System.out.println(customer);
-        var customerToUpdate = this.customerRepository.findById(id);
-        if (customerToUpdate.isPresent()) {
-            customerToUpdate.get().setFirstname(customer.getFirstname());
-            customerToUpdate.get().setLastname(customer.getLastname());
-            customerToUpdate.get().setEmail(customer.getEmail());
-            customerToUpdate.get().setAddress(customer.getAddress());
-            return new ResponseEntity<>(this.customerRepository.save(customerToUpdate.get()), HttpStatus.OK);
+        var optionalCustomer = this.customerRepository.findById(id);
+        if (optionalCustomer.isPresent()) {
+            var customerUpdate = optionalCustomer.get();
+            customerUpdate.setFirstname(customer.getFirstname());
+            customerUpdate.setLastname(customer.getLastname());
+            customerUpdate.setEmail(customer.getEmail());
+            customerUpdate.setAddress(customer.getAddress());
+            return new ResponseEntity<>(this.customerRepository.save(customerUpdate), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
