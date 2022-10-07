@@ -38,10 +38,11 @@ public class Customer {
     public Customer() {}
 
 
-    @OneToOne(cascade = CascadeType.ALL)
+
     /**
      * Address of the customer
      */
+    @OneToOne(cascade = CascadeType.REMOVE)
     private Address address;
 
     /**
