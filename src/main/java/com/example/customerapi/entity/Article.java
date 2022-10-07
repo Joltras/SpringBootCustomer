@@ -35,7 +35,7 @@ public class Article {
      * Category of the article
      * An article can only belong to one category
      */
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Category category;
 
     /**
