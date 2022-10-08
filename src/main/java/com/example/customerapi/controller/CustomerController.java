@@ -79,7 +79,7 @@ public class CustomerController {
      */
     @PostMapping("/update/{id}")
     @ResponseBody
-    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+    public ResponseEntity<Customer> updateFirstName(@PathVariable Long id, @RequestBody Customer customer) {
         var optionalCustomer = this.customerRepository.findById(id);
         if (optionalCustomer.isPresent()) {
             var customerUpdate = optionalCustomer.get();
@@ -101,7 +101,7 @@ public class CustomerController {
      */
     @PutMapping("/{id}/{firstName}")
     @ResponseBody
-    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @PathVariable String firstName) {
+    public ResponseEntity<Customer> updateFirstName(@PathVariable Long id, @PathVariable String firstName) {
         var customer = this.customerRepository.findById(id);
         if (customer.isPresent()) {
             customer.get().setFirstname(firstName);
