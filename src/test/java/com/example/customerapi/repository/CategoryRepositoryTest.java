@@ -39,7 +39,7 @@ class CategoryRepositoryTest {
     @Test
     void testFindAll() {
         var list = this.categoryRepository.findAll();
-        assertEquals(this.categoryRepository.findAll().size(), 2);
+        assertEquals(2, this.categoryRepository.findAll().size());
     }
 
 }

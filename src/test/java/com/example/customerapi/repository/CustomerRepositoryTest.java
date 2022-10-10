@@ -22,33 +22,33 @@ class CustomerRepositoryTest {
 
     @Test
     void testFindByFirstNameOrLast() {
-        assertEquals(this.customerRepository.findByFirstnameOrLastname("", "").size(), 0);
+        assertEquals(0, this.customerRepository.findByFirstnameOrLastname("", "").size());
     }
 
     @Test
     void testFindByFirstNameOrLast1() {
-        assertEquals(this.customerRepository.findByFirstnameOrLastname("Max", "").size(), 1);
+        assertEquals(1, this.customerRepository.findByFirstnameOrLastname("Max", "").size());
     }
 
     @Test
     void testFindByFirstOrLastname2() {
-        assertEquals(this.customerRepository.findByFirstnameOrLastname("", "Mustermann").size(), 2);
+        assertEquals(2, this.customerRepository.findByFirstnameOrLastname("", "Mustermann").size());
     }
 
     @Test
     void testFindByFirstOrLastname3() {
-        assertEquals(this.customerRepository.findByFirstnameOrLastname("Lisa", "Mustermann").size(), 3);
+        assertEquals(3, this.customerRepository.findByFirstnameOrLastname("Lisa", "Mustermann").size());
     }
 
     @Test
     void testSave() {
         this.customerRepository.save(new Customer());
-        assertEquals(this.customerRepository.findAll().size(), 5);
+        assertEquals(5, this.customerRepository.findAll().size());
     }
 
     @Test
     void testFindAll() {
-        assertEquals(this.customerRepository.findAll().size(), 4);
+        assertEquals(4, this.customerRepository.findAll().size());
     }
 
 }
