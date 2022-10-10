@@ -1,7 +1,6 @@
 package com.example.customerapi.repository;
 
 import com.example.customerapi.entity.Category;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.runner.RunWith;
