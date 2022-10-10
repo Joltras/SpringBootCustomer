@@ -21,19 +21,14 @@ class CategoryRepositoryTest {
     @Autowired
     CategoryRepository categoryRepository;
 
-    @BeforeAll
-    void setUp() {
-        this.categoryRepository.save(new Category("A", "B"));
-    }
-
     @Test
     void testGetByAbbNull() {
-        assertNull(this.categoryRepository.findByAbbreviation("C"));
+        assertNull(this.categoryRepository.findByAbbreviation("x"));
     }
 
     @Test
     void testGetByAbb() {
-        assertNotNull(this.categoryRepository.findByAbbreviation("B"));
+        assertNotNull(this.categoryRepository.findByAbbreviation("d"));
     }
 
     @Test
@@ -44,7 +39,8 @@ class CategoryRepositoryTest {
 
     @Test
     void testFindAll() {
-        assertNotNull(this.categoryRepository.findAll());
+        var list = this.categoryRepository.findAll();
+        assertEquals(this.categoryRepository.findAll().size(), 2);
     }
 
 }
