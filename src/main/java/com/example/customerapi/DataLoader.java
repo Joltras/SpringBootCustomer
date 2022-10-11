@@ -59,8 +59,8 @@ public class DataLoader {
 
         //Create example customers with addresses
         Address address1 = new Address("Test street", "Test city", "test", "Zip1");
-        Address address2 = new Address("Street2", "City2", "State2", "Zip2");
-        Address address3 = new Address("Street3", "City3", "State3", "Zip3");
+        Address address2 = new Address("Street2", "Test city", "State2", "Zip2");
+        Address address3 = new Address("Street2", "City3", "State3", "Zip3");
         addressRepository.save(address1);
         addressRepository.save(address2);
         addressRepository.save(address3);
