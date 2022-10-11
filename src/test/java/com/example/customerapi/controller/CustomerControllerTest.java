@@ -53,7 +53,7 @@ class CustomerControllerTest {
 
     @Test
     void testAdd() throws Exception {
-        mvc.perform(post("/customer/add")
+        mvc.perform(put("/customer/add")
                 .contentType(MediaType.APPLICATION_JSON).content("{}"))
                 .andExpect(status().isOk());
     }
@@ -61,7 +61,7 @@ class CustomerControllerTest {
     @Test
     void testUpdateFirstName() throws Exception {
         var customer = customerRepository.findAll().get(0);
-        mvc.perform(put("/customer/" + customer.getCustomerId() + "/Test")
+        mvc.perform(post("/customer/" + customer.getCustomerId() + "/Test")
                 .contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
 

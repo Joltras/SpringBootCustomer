@@ -77,7 +77,7 @@ public class CustomerController {
      * @param customer data to update the customer
      * @return returns ok if the update was successfully otherwise not found
      */
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     @ResponseBody
     public ResponseEntity<Customer> updateFirstName(@PathVariable Long id, @RequestBody Customer customer) {
         var optionalCustomer = this.customerRepository.findById(id);
@@ -99,7 +99,7 @@ public class CustomerController {
      * @param firstName new first name for the customer
      * @return ok if customer with the given id was found otherwise not found
      */
-    @PutMapping("/{id}/{firstName}")
+    @PostMapping("/{id}/{firstName}")
     @ResponseBody
     public ResponseEntity<Customer> updateFirstName(@PathVariable Long id, @PathVariable String firstName) {
         var customer = this.customerRepository.findById(id);
